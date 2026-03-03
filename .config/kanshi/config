@@ -1,0 +1,12 @@
+# Profile 1: Undocked (Laptop only)
+# This ensures things go back to normal when you unplug the projector.
+profile undocked {
+    output eDP-1 enable position 0,0 scale 2
+}
+
+# Profile 2: Projector Mirror
+# Overlapping the coordinates (position 0,0 for both) creates the mirror effect.
+profile projector-mirror {
+    output eDP-1 enable position 0,0 scale 2
+    output HDMI-A-1 enable position 0,0 
+}
