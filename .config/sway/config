@@ -13,7 +13,10 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 set $menu wofi --show drun
-
+# Your preferred browser
+set $browser zen-browser
+# Your preferred file manager
+set $file $term -e yazi
 
 
 
@@ -87,6 +90,18 @@ seat * xcursor_theme Adwaita 23
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
+
+#Apps bindings:
+#
+    #Start browser
+    bindsym $mod+b exec $browser
+
+    #Start file manager
+    bindsym $mod+e exec $file
+
+
+
+
 # Moving around:
 #
     # Move your focus around
@@ -141,13 +156,9 @@ seat * xcursor_theme Adwaita 23
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+x splith
+    bindsym $mod+z splitv
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -158,9 +169,6 @@ seat * xcursor_theme Adwaita 23
     # Swap focus between the tiling area and the floating area
     bindsym $mod+t focus mode_toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
-#
 
 # Resizing containers:
 mode "resize" {
@@ -184,7 +192,11 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-#
+
+
+
+
+
 # Utilities:
 #
     # Special keys to adjust volume via PulseAudio
@@ -198,7 +210,10 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym $mod+Shift+s exec grim -g "$(slurp)" - | satty --filename - --fullscreen
 
-#
+
+
+
+
 # Status Bar:
 bar {
     position top
